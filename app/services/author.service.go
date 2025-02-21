@@ -76,9 +76,6 @@ func (s *AuthorServiceImpl) Update(id uuid.UUID, req models.AuthorRequest) (res 
 		return
 	}
 
-	fmt.Println("tes", author)
-	fmt.Println("tes")
-
 	author.BindFromRequest(req)
 	err = s.DB.Orm().Save(&author).Error
 	if err != nil {
