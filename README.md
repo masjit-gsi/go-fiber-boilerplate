@@ -24,7 +24,7 @@ make dev
 
 5. Go to API Docs page (Swagger): [127.0.0.1:5000/swagger/index.html](http://127.0.0.1:5000/swagger/index.html)
 
-![Screenshot](https://user-images.githubusercontent.com/11155743/112715187-07dab100-8ef0-11eb-97ea-68d34f2178f6.png)
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/0e9f53c3-0d90-43d9-8132-734541cc3289" />
 
 ## 🗄 Template structure
 
