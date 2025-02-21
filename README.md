@@ -1,4 +1,4 @@
-# Fiber backend template for [Create Go App CLI](https://github.com/create-go-app/cli)
+# Fiber Backend Template 
 
 <img src="https://img.shields.io/badge/Go-1.19+-00ADD8?style=for-the-badge&logo=go" alt="go version" />&nbsp;<a href="https://goreportcard.com/report/github.com/fiber-go-template" target="_blank"><img src="https://img.shields.io/badge/Go_report-A+-success?style=for-the-badge&logo=none" alt="go report" /></a>&nbsp;<img src="https://img.shields.io/badge/license-Apache_2.0-red?style=for-the-badge&logo=none" alt="license" />
 
@@ -6,19 +6,9 @@
 
 ## ⚡️ Quick start
 
-1. Create a new project with Fiber:
-
-```bash
-cgapp create
-
-# Choose a backend framework:
-#   net/http
-# > fiber
-#   chi
-```
-
+1. Clone or open a new project with Fiber.
 2. Rename `.env.example` to `.env` and fill it with your environment values.
-3. Install [Docker](https://www.docker.com/get-started) and the following useful Go tools to your system:
+3. (Opsional) Install [Docker](https://www.docker.com/get-started) and the following useful Go tools to your system:
 
    - [golang-migrate/migrate](https://github.com/golang-migrate/migrate#cli-usage) for apply migrations
    - [github.com/swaggo/swag](https://github.com/swaggo/swag) for auto-generating Swagger API docs
@@ -29,7 +19,7 @@ cgapp create
 4. Run project by this command:
 
 ```bash
-make docker.run
+make dev
 ```
 
 5. Go to API Docs page (Swagger): [127.0.0.1:5000/swagger/index.html](http://127.0.0.1:5000/swagger/index.html)
@@ -44,29 +34,37 @@ make docker.run
 
 - `./app/controllers` folder for functional controllers (used in routes)
 - `./app/models` folder for describe business models and methods of your project
-- `./app/queries` folder for describe queries for models of your project
+- `./app/repository` folder for describe `const` of your project
+- `./app/service` folder for describe queries for models of your project
+- `./app/middleware` folder for add middleware (Fiber built-in and yours)
 
 ### ./docs
 
 **Folder with API Documentation**. This directory contains config files for auto-generated API Docs by Swagger.
 
-### ./pkg
+### ./helper
+
+**Folder helper / hook**. This directory helper/hook in your project.
+
+### ./routes
+
+**Folder routes**. This directory for define url endpoint in yout project.
+
+### ./config
 
 **Folder with project-specific functionality**. This directory contains all the project-specific code tailored only for your business use case, like _configs_, _middleware_, _routes_ or _utils_.
 
-- `./pkg/configs` folder for configuration functions
-- `./pkg/middleware` folder for add middleware (Fiber built-in and yours)
-- `./pkg/repository` folder for describe `const` of your project
-- `./pkg/routes` folder for describe routes of your project
-- `./pkg/utils` folder with utility functions (server starter, error checker, etc)
+- `./config/constant` folder for configuration constant variable
+- `./config/logger` folder for initialize logger of your project
+- `./config/utils` folder with utility functions (server starter, error checker, etc)
 
-### ./platform
+### ./database
 
 **Folder with platform-level logic**. This directory contains all the platform-level logic that will build up the actual project, like _setting up the database_ or _cache server instance_ and _storing migrations_.
 
-- `./platform/cache` folder with in-memory cache setup functions (by default, Redis)
-- `./platform/database` folder with database setup functions (by default, PostgreSQL)
-- `./platform/migrations` folder with migration files (used with [golang-migrate/migrate](https://github.com/golang-migrate/migrate) tool)
+- `./database` folder with database setup functions (by default, PostgreSQL)
+- `./database/cache` folder with in-memory cache setup functions (by default, Redis)
+- `./database/migrations` folder with migration files (used with [golang-migrate/migrate](https://github.com/golang-migrate/migrate) tool)
 
 ## ⚙️ Configuration
 
@@ -106,6 +104,14 @@ REDIS_HOST="cgapp-redis"
 REDIS_PORT=6379
 REDIS_PASSWORD=""
 REDIS_DB_NUMBER=0
+
+# Cors settings
+CORS_ALLOW_CREDENTIALS=true
+CORS_ALLOWED_HEADERS=Accept,Authorization,Content-Type
+CORS_ALLOWED_METHODS=GET,PUT,POST,PATCH,DELETE,OPTIONS
+CORS_ALLOWED_ORIGINS=http://localhost:5000,http://127.0.0.1:5000
+CORS_ENABLE=true
+CORS_MAX_AGE_SECONDS=300
 ```
 
 ## ⚠️ License
