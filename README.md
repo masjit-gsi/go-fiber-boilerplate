@@ -24,7 +24,7 @@ make dev
 
 5. Go to API Docs page (Swagger): [127.0.0.1:5000/swagger/index.html](http://127.0.0.1:5000/swagger/index.html)
 
-<img width="1512" alt="image" src="https://github.com/user-attachments/assets/0e9f53c3-0d90-43d9-8132-734541cc3289" />
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/56e5fc1e-f67d-4c9d-a939-50f92c067679" />
 
 ## 🗄 Template structure
 
@@ -34,9 +34,13 @@ make dev
 
 - `./app/controllers` folder for functional controllers (used in routes)
 - `./app/models` folder for describe business models and methods of your project
-- `./app/repository` folder for describe `const` of your project
-- `./app/service` folder for describe queries for models of your project
+- `./app/repository` folder for describe queries for models of your project
+- `./app/service` folder for describe functional and call repository for controllers of your project
 - `./app/middleware` folder for add middleware (Fiber built-in and yours)
+
+### ./bootsrap
+
+**Folder bootsrap**. This directory define main app in your project.
 
 ### ./docs
 
@@ -49,6 +53,9 @@ make dev
 ### ./routes
 
 **Folder routes**. This directory for define url endpoint in yout project.
+
+- `./routes/routes` folder for define url endpoint in yout project
+- `./routes/injection` folder for define and call dependencies injection in yout project
 
 ### ./config
 
