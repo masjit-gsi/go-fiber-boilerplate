@@ -1,8 +1,6 @@
 package services
 
 import (
-	"fmt"
-
 	"github.com/fiber-go-template/app/models"
 	"github.com/fiber-go-template/app/repository"
 	"github.com/fiber-go-template/config/logger"
